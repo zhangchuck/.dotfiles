@@ -7,14 +7,31 @@ tracking setup that doesn't require a lot of permissions.
 
 ## Barebones Setup
 
+*These instruction are adapted from this much more detailed guide that I 
+referenced when setting up my repo. That guide can be found [here](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/).*
+
 **Setting up a new system with existing dotfiles**
 
+Clone this repo and setup a temporary alias:
+
 ```
-git clone --bare git@github.com:zhangchuck/.dotfiles.git $HOME/.dotfiles &&\
-alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'] && \
+git clone --bare git@github.com:zhangchuck/.dotfiles.git $HOME/.dotfiles
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME']
+dot config --local status.showUntrackedFiles no
+```
+
+If you have existing dotfiles, you'll need to manually delete (or backup) these 
+files. Alternatively, you can try running this script:
+
+```
 mkdir -p .dotfiles-backup && \
-dot checkout 2>&1 | grep -oP "M\s*\K\.\w+" | awk {'print $1'} | \
+dot checkout 2>&1 | grep -oP "\s*\K\.\w+" | awk {'print $1'} | \
 xargs -I{} mv {} .dotfiles-backup/{} && \
+```
+
+Then, checkout and reset to the head of remote repository.
+
+```
 dot checkout && \
 dot reset --hard
 ```
@@ -36,9 +53,7 @@ dot config --local status.showUntrackedFiles no
 Also, make sure you add the alias in line 2 to your existing alias file (or
 .zshrc or .bashrc) and then restart your shell.
 
-*The guide I followed gives more detail and can be found [here](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/).*
 
-## References
+## Other References
 
-- [Guide to setting up barebones dotfile repo](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/)
 - [dotfiles.github.io](https://dotfiles.github.io/)
