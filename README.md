@@ -2,7 +2,7 @@
 
 I frequently work on several computers at once and I want to be able to 
 duplicate my normal working environment quickly on a new machine. I don't always
-have many permissions on the machines that I work on, so we'd like to have a
+have many permissions on the machines that I work on, so I'd like to have a
 tracking setup that doesn't require a lot of permissions.
 
 ## Barebones Setup
@@ -10,14 +10,12 @@ tracking setup that doesn't require a lot of permissions.
 **Setting up dotfiles on a new system**
 
 ```
-git clone --bare git@github.com:zhangchuck/.dotfiles.git $HOME/.dotfiles
-alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME']
-
+git clone --bare git@github.com:zhangchuck/.dotfiles.git $HOME/.dotfiles &&\
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'] && \
 mkdir -p .dotfiles-backup && \
 dot checkout 2>&1 | grep -oP "M\s*\K\.\w+" | awk {'print $1'} | \
-xargs -I{} mv {} .dotfiles-backup/{}
-
-dot checkout
+xargs -I{} mv {} .dotfiles-backup/{} && \
+dot checkout && \
 dot reset --hard
 ```
 
