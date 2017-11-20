@@ -11,8 +11,14 @@ tracking setup that doesn't require a lot of permissions.
 
 ```
 git clone --bare git@github.com:zhangchuck/.dotfiles.git $HOME/.dotfiles
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME']
-config checkout
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME']
+
+mkdir -p .dotfiles-backup && \
+dot checkout 2>&1 | grep -oP "M\s*\K\.\w+" | awk {'print $1'} | \
+xargs -I{} mv {} .dotfiles-backup/{}
+
+dot checkout
+dot reset --hard
 ```
 
 
