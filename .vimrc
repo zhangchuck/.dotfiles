@@ -2,6 +2,7 @@ syntax on
 colorscheme solarized
 set background=dark
 
+set clipboard=unnamedplus " use the system clibpoard (if vimx exists)
 set colorcolumn=80
 " highlight ColorColumn ctermbg=160 guibg=#D80000
 let &colorcolumn=join(range(81,999),",")
@@ -9,6 +10,7 @@ let &colorcolumn=join(range(81,999),",")
 filetype plugin indent on
 " show existing tab with 4 spaces width
 set tabstop=4
+set softtabstop=4
 " when indenting with '>', use 4 spaces width
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
@@ -29,6 +31,7 @@ set showmatch   " highlight matcching [{()}]
 set foldenable  "enable folding
 set foldlevelstart=10  " open most folds by default
 set foldnestmax=10  " 10 nested fold max
+set wrap
 
 " space open/closes folds
 nnoremap <space> za
