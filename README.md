@@ -7,7 +7,7 @@ tracking setup that doesn't require a lot of permissions.
 
 ## Barebones Setup
 
-**Setting up dotfiles on a new system**
+**Setting up a new system with existing dotfiles**
 
 ```
 git clone --bare git@github.com:zhangchuck/.dotfiles.git $HOME/.dotfiles &&\
@@ -19,10 +19,24 @@ dot checkout && \
 dot reset --hard
 ```
 
+**Updating your dotfiles from the repo**
 
+```
+dot pull origin
+```
 
-*Details can be found iun the references section.*
+**Setting up a new dotfiles repo**
 
+```
+git init --bare $HOME/.dotfiles
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+dot config --local status.showUntrackedFiles no
+```
+
+Also, make sure you add the alias in line 2 to your existing alias file (or
+.zshrc or .bashrc) and then restart your shell.
+
+*The guide I followed gives more detail and can be found [here](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/).*
 
 ## References
 
