@@ -16,3 +16,6 @@ alias got='git '
 alias get='git '
 
 alias gcam='git commit -am '
+
+# Convenience
+alias cls='printf "\033c"'
