@@ -22,7 +22,7 @@ set listchars=tab:!·,trail:·
 set number  " show line numbers
 set showcmd " show command in bottom bar
 
-set cursorline " highlight current line
+" set cursorline " highlight current line
 :hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue ctermfg=white
 
 set wildmenu    "visual autocomplete for command menu
