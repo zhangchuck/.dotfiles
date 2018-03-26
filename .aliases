@@ -21,3 +21,10 @@ alias gcam='git commit -am '
 alias cls='printf "\033c"'
 
 alias ll='ls -Alhv'
+alias drill='~/apps/apache-drill-1.12.0/bin/drill-embedded'
+alias decompress='python3 ~/Repos/y_ad_experiments/scripts/coordinator.py'
+alias insert='python3 ~/Repos/y_ad_experiments/scripts/convert_delimited_to_csv.py'
+
+alias done='notify-send -t 0 "Shell Script Completed"'
+alias -g ~~='/run/media/cyzhang/extra_disk/'
+alias -g ~~~='~/Repos/y_ad_experiments/scripts'

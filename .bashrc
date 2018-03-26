@@ -10,3 +10,6 @@ fi
 
 # User specific aliases and functions
 source $HOME/.aliases
+
+# added by travis gem
+[ -f /home/cyzhang/.travis/travis.sh ] && source /home/cyzhang/.travis/travis.sh

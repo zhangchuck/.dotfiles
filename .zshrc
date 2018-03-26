@@ -86,3 +86,9 @@ source $ZSH/oh-my-zsh.sh
 #export TERM=xterm-256color
 
 source $HOME/.aliases
+
+# Start ssh-agent
+eval $(keychain --eval id_rsa)
+
+# added by travis gem
+[ -f /home/cyzhang/.travis/travis.sh ] && source /home/cyzhang/.travis/travis.sh
