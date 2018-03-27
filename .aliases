@@ -2,8 +2,8 @@
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 # For good clipboard support, we want to use vimx if possible.
-if [ -e /usr/bin/vim ]; then alias vim='/usr/bin/vimx'; fi
-
+if [ -e /usr/bin/vimx ]; then alias vim='/usr/bin/vimx'; fi
+if [ -e /usr/bin/nvim ]; then alias vim='/usr/bin/nvim'; fi
 # General Git aliases
 alias gs='git status '
 alias ga='git add '

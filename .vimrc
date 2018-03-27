@@ -1,5 +1,12 @@
 syntax on
-colorscheme solarized
+
+if has("nvim")
+    colorscheme NeoSolarized
+else
+    colorscheme solarized
+endif
+
+set termguicolors
 set background=dark
 
 set clipboard=unnamedplus " use the system clibpoard (if vimx exists)
@@ -38,3 +45,5 @@ nnoremap <space> za
 
 set foldmethod=indent
 
+set t_8f=^[[38;2;%lu;%lu;%lum
+set t_8b=^[[48;2;%lu;%lu;%lum
