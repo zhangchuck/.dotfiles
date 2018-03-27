@@ -16,7 +16,7 @@ Clone this repo and setup a temporary alias:
 
 ```
 git clone --bare git@github.com:zhangchuck/.dotfiles.git $HOME/.dotfiles
-alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME']
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 dot config --local status.showUntrackedFiles no
 ```
 
@@ -26,13 +26,13 @@ files. Alternatively, you can try running this script:
 ```
 mkdir -p .dotfiles-backup && \
 dot checkout 2>&1 | grep -oP "\s*\K\.\w+" | awk {'print $1'} | \
-xargs -I{} mv {} .dotfiles-backup/{} && \
+xargs -I{} mv {} .dotfiles-backup/{}
 ```
 
 Then, checkout and reset to the head of remote repository.
 
 ```
-dot checkout && \
+dot checkout
 dot reset --hard
 ```
 
